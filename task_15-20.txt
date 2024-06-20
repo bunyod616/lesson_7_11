@@ -1,0 +1,57 @@
+16 = https://www.codewars.com/kata/5a005f4fba2a14897f000086/train/python = Sum Array with different bases
+
+def sum_it_up(numbers):
+    total_sum = 0
+    for num, base in numbers:
+        base_10_value = int(num, base)
+        total_sum += base_10_value
+    return total_sum
+
+17 = https://www.codewars.com/kata/5cc80fbe701f0d001136e5eb/train/python = Stem-and-leaf plot
+
+def stem_and_leaf(numbers):
+    plot = {}
+    
+    for number in numbers:
+        stem = number // 10
+        leaf = number % 10
+        if stem not in plot:
+            plot[stem] = []
+        plot[stem].append(leaf)
+        
+    for stem in plot:
+        plot[stem].sort()
+    return plot
+
+18 = https://www.codewars.com/kata/57ae18c6e298a7a6d5000c7a/train/python = Replace all items
+
+def replace_all(data, old, new):
+    if isinstance(data, str):
+        return data.replace(old, new)
+    elif isinstance(data, list):
+        return [new if item == old else item for item in data]
+    else:
+        raise TypeError("Input must be either a string or a list")
+
+19 = https://www.codewars.com/kata/5899e054aa1498da6b0000cc/train/python = Reverse and Invert
+
+def reverse_invert(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, int):
+            reversed_item = int(str(abs(item))[::-1])
+            if item < 0:
+                result.append(reversed_item)
+            else:
+                result.append(-reversed_item)
+    return result
+
+20 = https://www.codewars.com/kata/55466644b5d240d1d70000ba/train/python = Candy problem
+
+def candies(candies_list):
+    if len(candies_list) <= 1:
+        return -1
+    
+    max_candies = max(candies_list)
+    total_candies = sum(max_candies - candy for candy in candies_list)
+    return total_candies
